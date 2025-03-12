@@ -1,0 +1,11 @@
+/build
+/node_modules
+/public
+/src
+.gitignore
+.npmignore
+.prettierrc.js
+package-lock.json
+package.json
+tsconfig.json
+vite.config.js

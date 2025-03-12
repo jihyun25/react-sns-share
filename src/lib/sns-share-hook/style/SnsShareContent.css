@@ -1,0 +1,191 @@
+.sns__share__content {
+  position: fixed;
+  /* bottom: -50%; */
+  left: 0;
+  background-color: #fff;
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  transition: bottom 0.2s;
+}
+.header {
+  height: 10px;
+  width: 100%;
+  padding: 10px 0;
+}
+.header > div {
+  width: 100px;
+  height: 100%;
+  margin: 0 auto;
+  background-color: #000;
+  cursor: pointer;
+}
+.title {
+  padding: 20px 0 0 20px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+.body > ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 30px 20px 50px;
+  overflow-x: scroll;
+  scrollbar-width: none;
+}
+.body > ul::-webkit-scrollbar {
+  display: none;
+}
+.body > ul > li {
+  white-space: nowrap;
+  padding-left: 35px;
+}
+.body > ul > li:first-of-type {
+  padding-left: 0px;
+}
+.body > ul > li .sns-btn {
+	display: block;
+	width: 60px;
+	margin: 0;
+	padding: 0;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+.body > ul > li .sns-btn img {
+	width: 100%;
+}
+.body > ul > li .navigator-share {
+	position: relative;
+	width: 60px;
+	height: 60px;
+	margin: 0;
+	padding: 0;
+	background-color: transparent;
+	border: 2px solid #000;
+	border-radius: 50%;
+	cursor: pointer;
+	box-sizing: border-box;
+}
+.body > ul > li .navigator-share p {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+	padding: 0;
+}
+.body > ul > li .navigator-share p span {
+	display: block;
+	margin-left: 4px;
+	width: 4px;
+	height: 4px;
+	background-color: #000;
+	border-radius: 50%;
+}
+.body > ul > li .navigator-share p span:first-of-type {
+	margin-left: 0;
+}
+.body > ul > li .clipboard-btn {
+	display: block;
+	width: 60px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background-color: transparent;
+	cursor: pointer;
+}
+.body > ul > li .clipboard-btn img {
+	width: 100%;
+	border: 2px solid #000;
+	border-radius: 50%;
+	box-sizing: border-box;
+}
+.body .no-data {
+  padding: 20px;
+}
+
+@media (min-width: 767.98px) {
+  .sns__share__content {
+    bottom: initial;
+    top: 50%;
+		bottom: auto !important;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    width: 500px;
+    height: max-content;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s, visibility 0.2s;
+  }
+  .drawer-open .sns__share__content {
+    opacity: 1;
+    visibility: visible;
+  }
+  .header {
+    display: none;
+  }
+  .body > ul {
+    padding: 30px 20px 40px;
+    height: 100%;
+  }
+}
+
+@media (min-width: 1367px) {
+  .sns__share__content {
+    top: 0;
+    right: 0;
+    left: initial;
+    transform: initial;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    width: 100px;
+    height: 100%;
+  }
+  .title {
+    padding: 20px 0;
+    text-align: center;
+    height: 20px;
+  }
+  .body > ul {
+    display: block;
+    text-align: center;
+    height: calc(100% - 80px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0 20px 50px;
+  }
+  .body > ul > li {
+    padding-left: 0;
+    padding-top: 35px;
+  }
+  .body > ul > li:first-of-type {
+		padding-top: 20px;
+	}
+	.body > ul > li .sns-btn {
+		width: 100%;
+	}
+	.body > ul > li .navigator-share {
+		padding-top: calc(100% - 4px);
+	}
+	.body > ul > li .navigator-share p {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+	.body > ul > li .clipboard-btn {
+		width: 100%;
+	}
+}

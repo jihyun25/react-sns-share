@@ -16,6 +16,10 @@
     "kkh(김강현) <rkdgus911@gmail.com>",
     "ljh(이지현) <dlwlgus0525@gmail.com>"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jihyun25/react-sns-share"
+  },
   "license": "MIT",
   "dependencies": {
     "react": "^18.3.1",

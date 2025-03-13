@@ -1,18 +1,7 @@
 {
   "name": "react-sns-share",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "private": false,
-  "main": "./index.es.js",
-  "types": "./index.es.d.ts",
-  "module": "./index.es.js",
-  "exports": {
-    ".": {
-      "types": "./index.es.d.ts",
-      "import": "./index.es.js",
-      "require": "./index.es.js",
-      "./style.css": "./style.css"
-    }
-  },
   "type": "module",
   "browser": "./browser/specific/main.js",
   "description": "React social share Component (modal / drawer)",

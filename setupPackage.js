@@ -17,7 +17,6 @@ function main() {
       "./style.css": "./style.css",
     },
   };
-  console.log(sourceObj);
   if (sourceObj.main.startsWith("/dist/")) {
     sourceObj.main = sourceObj.main.slice(5);
   }

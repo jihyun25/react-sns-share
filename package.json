@@ -1,6 +1,6 @@
 {
   "name": "react-sns-share",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "private": false,
   "type": "module",
   "browser": "./browser/specific/main.js",

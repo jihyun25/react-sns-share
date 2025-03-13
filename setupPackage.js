@@ -17,9 +17,11 @@ function main() {
       "./style.css": "./style.css",
     },
   };
+
   if (sourceObj.main.startsWith("/dist/")) {
     sourceObj.main = sourceObj.main.slice(5);
   }
+
   fs.writeFileSync(
     __dirname + "/dist/package.json",
     Buffer.from(JSON.stringify(sourceObj, null, 2), "utf-8")

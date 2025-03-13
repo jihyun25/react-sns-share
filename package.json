@@ -1,6 +1,6 @@
 {
   "name": "react-sns-share",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "private": false,
   "main": "./index.es.js",
   "types": "./index.es.d.ts",

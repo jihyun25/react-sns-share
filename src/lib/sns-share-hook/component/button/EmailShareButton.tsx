@@ -1,6 +1,6 @@
-import {useContext, useMemo} from 'react';
-import {SnsShareDrawerContext} from '../../SnsShareDrawerContext';
-import EmailLogo from '../../../../assets/email_circle_logo.png';
+import { useContext, useMemo } from "react";
+import { SnsShareDrawerContext } from "../../SnsShareDrawerContext";
+import EmailLogo from "../../../../assets/email_circle_logo.png";
 
 // 메일 버튼
 const EmailShareButton = () => {
@@ -20,7 +20,7 @@ const EmailShareButton = () => {
     } else if (defaultContext?.snsData?.email?.addressee !== undefined) {
       return encodeURIComponent(defaultContext?.snsData.email?.addressee);
     } else {
-      return encodeURIComponent('');
+      return encodeURIComponent("");
     }
   }, [
     defaultContext?.snsData?.email?.addressee,
@@ -35,7 +35,7 @@ const EmailShareButton = () => {
     } else if (defaultContext?.snsData?.email?.subject !== undefined) {
       return encodeURIComponent(defaultContext?.snsData.email?.subject);
     } else {
-      return encodeURIComponent('');
+      return encodeURIComponent("");
     }
   }, [
     defaultContext?.snsData?.email?.subject,
@@ -51,7 +51,7 @@ const EmailShareButton = () => {
     } else if (defaultContext?.snsData?.email?.body !== undefined) {
       return encodeURIComponent(defaultContext?.snsData.email?.body);
     } else {
-      return encodeURIComponent('');
+      return encodeURIComponent("");
     }
   }, [
     defaultContext?.snsData?.email?.body,
@@ -86,8 +86,9 @@ const EmailShareButton = () => {
     <li>
       <a
         className="sns-btn"
-        href={`mailto:${encodeAddressee}?subject=${encodeSubject}&body=${encodeBody}`}>
-				<img src={EmailLogo} alt="email icon" />
+        href={`mailto:${encodeAddressee}?subject=${encodeSubject}&body=${encodeBody}`}
+      >
+        <img src={EmailLogo} alt="email icon" />
       </a>
     </li>
   );

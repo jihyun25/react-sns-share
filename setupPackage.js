@@ -11,13 +11,11 @@ function main() {
   sourceObj.main = "./index.es.js";
   sourceObj.types = "./index.es.d.ts";
   sourceObj.module = "./index.es.js";
-  sourceObj.files = ["dist"];
   sourceObj.exports = {
     ".": {
       types: "./index.es.d.ts",
       import: "./index.es.js",
       require: "./index.es.js",
-      "./style.css": "./style.css",
     },
   };
   if (sourceObj.main.startsWith("/dist/")) {

@@ -1,5 +1,5 @@
-import {useCallback, useContext, useMemo} from 'react';
-import {SnsShareDrawerContext} from '../../SnsShareDrawerContext';
+import { useCallback, useContext, useMemo } from "react";
+import { SnsShareDrawerContext } from "../../SnsShareDrawerContext";
 
 // Navigator.share() 버튼
 const NavigatorShareButton = () => {
@@ -17,7 +17,7 @@ const NavigatorShareButton = () => {
     if (snsShareDataContext?.title !== undefined) {
       return snsShareDataContext?.title;
     } else {
-      return '';
+      return "";
     }
   }, [snsShareDataContext?.title]);
 
@@ -25,7 +25,7 @@ const NavigatorShareButton = () => {
     if (snsShareDataContext?.description !== undefined) {
       return snsShareDataContext?.description;
     } else {
-      return '';
+      return "";
     }
   }, [snsShareDataContext?.description]);
 
@@ -33,7 +33,7 @@ const NavigatorShareButton = () => {
     if (snsShareDataContext?.url !== undefined) {
       return snsShareDataContext?.url;
     } else {
-      return '';
+      return "";
     }
   }, [snsShareDataContext?.url]);
 
@@ -43,23 +43,25 @@ const NavigatorShareButton = () => {
     } else if (defaultContext?.imageUrl !== undefined) {
       return defaultContext?.imageUrl;
     } else {
-      return '';
+      return "";
     }
   }, [defaultContext?.imageUrl, snsShareDataContext?.imageUrl]);
 
   const onClickNavigatorShare = useCallback(async () => {
     const response = await fetch(imageUrl);
     const data = await response.blob();
-    const filename = imageUrl.split('/').pop();
-    const urlToFile = new File([data], filename!, {type: data.type});
+    const filename = imageUrl.split("/").pop();
+    const urlToFile = new File([data], filename!, { type: data.type });
 
     try {
-      await navigator.share({
-        title: title,
-        text: description,
-        url: url,
-        files: imageUrl ? [urlToFile] : undefined,
-      });
+      if (typeof navigator !== "undefined") {
+        await navigator.share({
+          title: title,
+          text: description,
+          url: url,
+          files: imageUrl ? [urlToFile] : undefined,
+        });
+      }
     } catch (e: any) {
       console.error(e);
     }
@@ -72,11 +74,11 @@ const NavigatorShareButton = () => {
   return (
     <li>
       <button className="navigator-share" onClick={onClickNavigatorShare}>
-				<p>
-					<span></span>
-					<span></span>
-					<span></span>
-				</p>
+        <p>
+          <span></span>
+          <span></span>
+          <span></span>
+        </p>
       </button>
     </li>
   );

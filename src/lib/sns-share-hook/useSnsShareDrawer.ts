@@ -1,13 +1,13 @@
-import {useCallback, useContext} from 'react';
-import {SnsShareDrawerContext} from './SnsShareDrawerContext';
-import {SnsShareDataType, SnsShareDrawerHookType} from './types';
+import { useCallback, useContext } from "react";
+import { SnsShareDrawerContext } from "./SnsShareDrawerContext";
+import { SnsShareDataType, SnsShareDrawerHookType } from "./types";
 
 // DrawerContext를 사용하는 훅
 export const useSnsShareDrawer = (): SnsShareDrawerHookType => {
   const context = useContext(SnsShareDrawerContext);
 
   if (!context) {
-    throw new Error('Error');
+    throw new Error("Error");
   }
 
   // 모달을 열기

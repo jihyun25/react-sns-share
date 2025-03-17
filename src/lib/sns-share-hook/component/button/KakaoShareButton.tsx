@@ -1,6 +1,6 @@
-import {useCallback, useContext, useEffect, useMemo} from 'react';
-import {SnsShareDrawerContext} from '../../SnsShareDrawerContext';
-import KakaoLogo from '../../../../assets/kakao_circle_logo.png';
+import { useCallback, useContext, useEffect, useMemo } from "react";
+import { SnsShareDrawerContext } from "../../SnsShareDrawerContext";
+import KakaoLogo from "../../../../assets/kakao_circle_logo.png";
 
 // 카카오톡 버튼
 const KakaoShareButton = () => {
@@ -22,7 +22,7 @@ const KakaoShareButton = () => {
     } else if (defaultContext?.snsData?.kakao?.title !== undefined) {
       return defaultContext?.snsData?.kakao.title;
     } else {
-      return '';
+      return "";
     }
   }, [
     defaultContext?.snsData?.kakao?.title,
@@ -38,7 +38,7 @@ const KakaoShareButton = () => {
     } else if (defaultContext?.snsData?.kakao?.description !== undefined) {
       return defaultContext?.snsData?.kakao.description;
     } else {
-      return '';
+      return "";
     }
   }, [
     defaultContext?.snsData?.kakao?.description,
@@ -56,7 +56,7 @@ const KakaoShareButton = () => {
     } else if (defaultContext?.imageUrl !== undefined) {
       return defaultContext?.imageUrl;
     } else {
-      return '';
+      return "";
     }
   }, [
     defaultContext?.imageUrl,
@@ -73,7 +73,7 @@ const KakaoShareButton = () => {
     } else if (defaultContext?.snsData?.kakao?.link !== undefined) {
       return encodeURIComponent(defaultContext?.snsData?.kakao.link);
     } else {
-      return encodeURIComponent('');
+      return encodeURIComponent("");
     }
   }, [
     defaultContext?.snsData?.kakao?.link,
@@ -87,7 +87,7 @@ const KakaoShareButton = () => {
     } else if (defaultContext?.snsData?.kakao?.btnTitle !== undefined) {
       return defaultContext?.snsData?.kakao.btnTitle;
     } else {
-      return '';
+      return "";
     }
   }, [
     defaultContext?.snsData?.kakao?.btnTitle,
@@ -100,7 +100,7 @@ const KakaoShareButton = () => {
     } else if (defaultContext?.snsData?.kakao?.btnLink !== undefined) {
       return encodeURIComponent(defaultContext?.snsData?.kakao.btnLink);
     } else {
-      return encodeURIComponent('');
+      return encodeURIComponent("");
     }
   }, [
     defaultContext?.snsData?.kakao?.btnLink,
@@ -132,7 +132,7 @@ const KakaoShareButton = () => {
     } else if (defaultContext?.snsData?.kakao?.kakaoId !== undefined) {
       return defaultContext?.snsData.kakao?.kakaoId;
     } else {
-      return '';
+      return "";
     }
   }, [
     defaultContext?.snsData?.kakao?.kakaoId,
@@ -140,28 +140,28 @@ const KakaoShareButton = () => {
   ]);
 
   useEffect(() => {
-		if(kakaoId){
-			const head = document.getElementsByTagName('head')[0];
-		
-			if (head && !document.getElementById('kakao-script')) {
-				const script = document.createElement('script');
-				script.id = 'kakao-script';
-				script.src = 'https://developers.kakao.com/sdk/js/kakao.js';
-				head.appendChild(script);
-			}
-		}
+    if (kakaoId) {
+      const head = document.getElementsByTagName("head")[0];
 
-		if(window.Kakao) {
-			window.Kakao.cleanup();
-			window.Kakao.init(kakaoId);
-		}  
+      if (head && !document.getElementById("kakao-script")) {
+        const script = document.createElement("script");
+        script.id = "kakao-script";
+        script.src = "https://developers.kakao.com/sdk/js/kakao.js";
+        head.appendChild(script);
+      }
+    }
+
+    if (window.Kakao) {
+      window.Kakao.cleanup();
+      window.Kakao.init(kakaoId);
+    }
   }, [kakaoId]);
 
   const onClickKakaoShare = useCallback(() => {
-    if (window.Kakao) {
+    if (window.Kakao && window.Kakao.Share) {
       // 카카오톡 공유 버튼 생성
       window.Kakao.Share.sendDefault({
-        objectType: 'feed', // 공유 형식 (feed, text 등)
+        objectType: "feed", // 공유 형식 (feed, text 등)
         content: {
           title: title, // 제목
           description: description, // 설명
@@ -182,7 +182,7 @@ const KakaoShareButton = () => {
         ],
       });
     }
-  },[btnLink, btnTitle, description, imageUrl, link, title]);
+  }, [btnLink, btnTitle, description, imageUrl, link, title]);
 
   if (!kakaoId || !title || !link || !usable) {
     return <></>;
@@ -191,7 +191,7 @@ const KakaoShareButton = () => {
   return (
     <li>
       <button className="sns-btn" onClick={onClickKakaoShare}>
-				<img src={KakaoLogo} alt="kakao logo" />
+        <img src={KakaoLogo} alt="kakao logo" />
       </button>
     </li>
   );

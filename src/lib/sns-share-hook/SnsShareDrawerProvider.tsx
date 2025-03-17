@@ -1,12 +1,12 @@
-import {ReactNode, useState} from 'react';
-import {SnsShareDrawerContext} from './SnsShareDrawerContext';
-import {SnsShareDataType, SnsShareDefaultDataType} from './types';
-import {SnsShareWrapper} from './component/SnsShareWrapper';
-import {SnsShareBackDrop} from './component/SnsShareBackDrop';
-import {SnsShareContent} from './component/SnsShareContent';
-import './style/SnsShareContent.css';
-import './style/SnsShareBg.css';
-import './style/UserCustom.css';
+import { ReactNode, useState } from "react";
+import { SnsShareDrawerContext } from "./SnsShareDrawerContext";
+import { SnsShareDataType, SnsShareDefaultDataType } from "./types";
+import { SnsShareWrapper } from "./component/SnsShareWrapper";
+import { SnsShareBackDrop } from "./component/SnsShareBackDrop";
+import { SnsShareContent } from "./component/SnsShareContent";
+import "./style/SnsShareContent.css";
+import "./style/SnsShareBg.css";
+import "./style/UserCustom.css";
 
 export interface SnsShareDrawerProviderProps {
   children: ReactNode;
@@ -41,7 +41,8 @@ export const SnsShareDrawerProvider = ({
         defaultSnsShareData,
         defaultWidth,
         defaultHeight,
-      }}>
+      }}
+    >
       <>
         {children}
         <SnsShareWrapper>

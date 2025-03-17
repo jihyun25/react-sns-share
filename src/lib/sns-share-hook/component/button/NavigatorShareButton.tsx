@@ -54,14 +54,12 @@ const NavigatorShareButton = () => {
     const urlToFile = new File([data], filename!, { type: data.type });
 
     try {
-      if (typeof navigator !== "undefined") {
-        await navigator.share({
-          title: title,
-          text: description,
-          url: url,
-          files: imageUrl ? [urlToFile] : undefined,
-        });
-      }
+      await navigator.share({
+        title: title,
+        text: description,
+        url: url,
+        files: imageUrl ? [urlToFile] : undefined,
+      });
     } catch (e: any) {
       console.error(e);
     }

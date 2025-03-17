@@ -310,6 +310,7 @@ export const SnsShareContent = () => {
   );
 
   const [screenWidth, setScreenWidth] = useState<number>(0);
+  const [isClient, setIsClient] = useState<boolean>(false);
 
   // 반응형 리사이징
   const resizeingHandler = useCallback(() => {
@@ -320,6 +321,7 @@ export const SnsShareContent = () => {
 
   useEffect(() => {
     setScreenWidth(window.innerWidth);
+    setIsClient(true); // 클라이언트에서만 실행되므로, 렌더링 후 클라이언트에서 상태 변경
   }, []);
 
   useEffect(() => {
@@ -347,6 +349,10 @@ export const SnsShareContent = () => {
       }
     }
   }, [isOpen, screenWidth]);
+
+  if (!isClient) {
+    return null;
+  }
 
   return (
     <div
@@ -376,7 +382,7 @@ export const SnsShareContent = () => {
             <EmailShareButton />
             <FacebookShareButton />
 
-            {typeof navigator !== "undefined" && "share" in navigator ? (
+            {"share" in navigator ? (
               <NavigatorShareButton />
             ) : (
               <ClipboardButton />

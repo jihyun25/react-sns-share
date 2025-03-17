@@ -20,9 +20,7 @@ const ClipboardButton = () => {
 
   // 클립보드 복사 함수
   const onClickClipboardCopy = useCallback(() => {
-    if (typeof navigator !== "undefined") {
-      navigator.clipboard.writeText(url);
-    }
+    navigator.clipboard.writeText(url);
   }, [url]);
 
   return (

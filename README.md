@@ -1,6 +1,3 @@
-# 테스트 중입니다..
-
-<br />
 ## 목표하는 것
 
 이 애플리케이션은 사용자가 원하는 페이지를 소셜 네트워킹 시스템에 공유할 수 있는 modal 또는 drawer을 생성합니다.
@@ -112,7 +109,9 @@ function App() {
   return (
     // context api를 사용하기 위해선 App.tsx에서 context 관련 컴포넌트로 감싸줘야함
     // App.tsx에서 SnsShareDrawerProvider 컴포넌트를 선언해주면 모든 페이지에서 useSnsShareDrawer hook 사용 가능!
-    <SnsShareDrawerProvider defaultData={defaultData}>{children}</SnsShareDrawerProvider>
+    <SnsShareDrawerProvider defaultData={defaultData}>
+      {children}
+    </SnsShareDrawerProvider>
   );
 }
 
@@ -183,7 +182,8 @@ const onClickOpenModal2 = useCallback(() => {
           usable: true,
         },
         email: {
-          addressee: "test1@gmail.com, test2@gmail.com, test3@gmail.com, test4@gmail.com",
+          addressee:
+            "test1@gmail.com, test2@gmail.com, test3@gmail.com, test4@gmail.com",
           subject: "email test title222",
           body: "https://test.com",
           usable: true,
